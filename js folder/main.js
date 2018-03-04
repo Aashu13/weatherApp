@@ -38,12 +38,10 @@ $(document).ready(function() {
         function checkWeather() {
           if (temp >= 32) {
             $(".icon").append("<i class='fa fa-sun-o fa-5x'></i>");
-            $("#thermometer").html("<i class='fa fa-thermometer-2'>");
           }
 
           if (temp <= 30) {
             $(".icon").append("<i class='fa fa-cloud fa-5x'></i>");
-            $("#thermometer").html("<i class='fa fa-thermometer-1'>");
           }
         }
 
