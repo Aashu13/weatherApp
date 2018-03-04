@@ -1,9 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
   console.log(tempDiv);
 
-
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
+    navigator.geolocation.getCurrentPosition(function(position) {
       var latitude = position.coords.latitude;
       var longtitude = position.coords.longitude;
       var weather_api =
@@ -12,39 +11,43 @@ $(document).ready(function () {
         "&lon=" +
         longtitude;
 
-      $.getJSON(weather_api, function (data) {
+      $.getJSON(weather_api, function(data) {
         var temp = data.main.temp;
         var location = data.name;
         var humidity = data.main.humidity;
         var AirSpeed = data.wind.speed;
-        var minTemp = data.main.temp_min;
 
-        var Temprature = document.createElement("span");
-        Temprature.textContent = temp;
+        $("#location").html(location);
+        $("#temp").html(temp + "&#8451");
+        $("#humidity").html(humidity);
+        $("#Air_speed").html(AirSpeed);
 
-        var Humidity = document.createElement("span");
-        Humidity.textContent = humidity;
+        var Ftemp = (temp * 9 / 5 + 32).toFixed(0);
+        var sweap = false;
 
-        var minTemprature = document.createElement('span');
-        minTemprature.textContent = minTemp;
+        $("#temp").on("click", function() {
+          if (sweap == false) {
+            $("#temp").html(Ftemp + "&#8457");
+            sweap = true;
+          } else {
+            $("#temp").html(temp + "&#8451");
+            sweap = false;
+          }
+        });
 
-        var airSpeed = document.createElement('span');
-        airSpeed.textContent = AirSpeed;
+        function checkWeather() {
+          if (temp >= 32) {
+            $(".icon").append("<i class='fa fa-sun-o fa-5x'></i>");
+            $("#thermometer").html("<i class='fa fa-thermometer-2'>");
+          }
 
-        if (temp < 20) {
-
-          document.getElementById('currentLocation').style.backgroundImage = "url('./images/clouds-clip-art-15.jpg')";
-
-
+          if (temp <= 30) {
+            $(".icon").append("<i class='fa fa-cloud fa-5x'></i>");
+            $("#thermometer").html("<i class='fa fa-thermometer-1'>");
+          }
         }
 
-
-
-        document.getElementById("location").innerText = location;
-        document.getElementById("tempDiv").appendChild(Temprature);
-        document.getElementById("humidity_Div").appendChild(Humidity);
-        document.getElementById("min_tempDiv").appendChild(minTemprature);
-        document.getElementById("air_div").appendChild(airSpeed);
+        checkWeather();
       }); /* close prantheses for get json function */
     });
   }

@@ -9,35 +9,11 @@
 </head>
 
 <body>
-    <h1>LOCAL WEATHER APP</h1>
+    <h2 id="heading">LOCAL WEATHER APP</h2>
 
     <div class="wrapper">
+        <div class="icon"></div>
         <div class="container">
-            <div class="items1">
-                <ul>
-                    <li>
-                        <i class="fa fa-signal" aria-hidden="true"></i>
-                    </li>
-                    <li>
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="items2">
-                <ul>
-                    <li>
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
-                    </li>
-                    <li>
-                        <i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
-                    </li>
-                    <li>
-                        <i class="fa fa-battery-half" aria-hidden="true"></i>
-                    </li>
-                </ul>
-            </div>
-
             <div id="currentLocation">
                 <h3 id="location">location</h3>
             </div>
@@ -45,35 +21,31 @@
             <div class="tempratureDiv">
 
                 <div id="tempDiv">
-                    <h2 id="temp">Temp</h2>
+                    <span>Temp</span>
+                    <h2 id="temp"></h2>
                     <i class="fa fa-thermometer-4"></i>
                 </div>
 
                 <div id="humidity_Div">
-                    <h2>Humidity</h2>
+                    <span>Humidity</span>
+                    <h2 id="humidity"></h2>
                     <i class="fa fa-tint" aria-hidden="true"></i>
-
                 </div>
-
-            </div>
-
-            <div class="min_temp">
-
-                <div id="min_tempDiv">
-                    <h2>Min temp</h2>
-                    <i class="fa fa-thermometer-2"></i>
-                </div>
-
+                <hr>
+                <!-- 
                 <div id="air_div">
-                    <h2>Air speed</h2>
+                    <span>Air Speed</span>
+                    <h2 id="Air_speed"></h2>
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
+                </div> -->
 
-                </div>
             </div>
-
 
         </div>
+
+
     </div>
+
 
 
 
